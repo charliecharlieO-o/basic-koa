@@ -1,5 +1,8 @@
 import Koa from 'koa'
 
+// import routes
+import defaults from './routes/default'
+
 export const app = new Koa()
 
 // error handling
@@ -26,17 +29,9 @@ app.use(async (ctx, next) => {
   const start = Date.now()
   await next()
   const ms = Date.now() - start
-  console.log(`${ctx.method} ${ctx.url} - ${ms}`)
+  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
-// response
-app.use(async ctx => {
-  if (ctx.query.greet !== 'world') {
-    throw new Error('Can only greet "world"')
-  }
-  
-  ctx.status = 200
-  ctx.body = `Hello ${ctx.query.greet} from Koa`
-})
-
+// use the new routes
+app.use(defaults.routes())
 app.listen(3000)
