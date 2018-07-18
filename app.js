@@ -1,7 +1,9 @@
 import Koa from 'koa'
+import Router from 'koa-router'
 
 // import routes
 import defaults from './routes/default'
+import todos from './routes/todo'
 
 export const app = new Koa()
 
@@ -32,6 +34,10 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
-// use the new routes
-app.use(defaults.routes())
+// create a new router and use routes
+const router = new Router()
+router.use('/todos', todos.routes(), todos.allowedMethods())
+router.use('/', defaults.routes(), defaults.allowedMethods())
+
+app.use(router.routes())
 app.listen(3000)
