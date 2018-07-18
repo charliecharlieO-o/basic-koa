@@ -1,12 +1,12 @@
-import Koa from 'koa'
-import Router from 'koa-router'
-import bodyparser from 'koa-bodyparser'
+const Koa = require('koa')
+const Router = require('koa-router')
+const bodyparser = require('koa-bodyparser')
 
 // import routes
-import defaults from './routes/default'
-import todos from './routes/todo'
+const defaults = require('./routes/default')
+const todos = require('./routes/todo')
 
-export const app = new Koa()
+const app = new Koa()
 
 // error handling
 app.use(async (ctx, next) => {
@@ -36,7 +36,7 @@ app.use(async (ctx, next) => {
 })
 
 // Adding a body parser (goes before routes)
-app.use(bodyparser)
+app.use(bodyparser())
 // create a new router and use routes
 const router = new Router()
 router.use('/todos', todos.routes(), todos.allowedMethods())
