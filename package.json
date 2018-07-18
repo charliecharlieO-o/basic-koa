@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Default koa setup",
   "main": "index.js",
-  "scripts": { 
+  "scripts": {
     "debug": "env DEBUG=koa* npm start",
     "start": "babel-node app.js",
     "test": "test"
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.5.2",
+    "koa-bodyparser": "^4.2.1",
     "koa-router": "^7.4.0"
   },
   "devDependencies": {
