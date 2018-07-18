@@ -1,5 +1,6 @@
 import Koa from 'koa'
 import Router from 'koa-router'
+import bodyparser from 'koa-bodyparser'
 
 // import routes
 import defaults from './routes/default'
@@ -34,6 +35,8 @@ app.use(async (ctx, next) => {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+// Adding a body parser (goes before routes)
+app.use(bodyparser)
 // create a new router and use routes
 const router = new Router()
 router.use('/todos', todos.routes(), todos.allowedMethods())
