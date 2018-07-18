@@ -1,5 +1,6 @@
-const Koa = require('koa')
-const app = new Koa()
+import Koa from 'koa'
+
+export const app = new Koa()
 
 // error handling
 app.use(async (ctx, next) => {
@@ -29,7 +30,6 @@ app.use(async (ctx, next) => {
 })
 
 // response
-
 app.use(async ctx => {
   if (ctx.query.greet !== 'world') {
     throw new Error('Can only greet "world"')
