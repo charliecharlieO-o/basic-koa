@@ -7,6 +7,7 @@ const defaults = require('./routes/default')
 const todos = require('./routes/todo')
 
 const app = new Koa()
+module.exports = app
 
 // error handling
 app.use(async (ctx, next) => {
