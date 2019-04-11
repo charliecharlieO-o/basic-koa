@@ -40,7 +40,6 @@ app.use(async (ctx, next) => {
 app.use(bodyparser())
 // create a new router and use routes
 const router = new Router()
-router.use('/todos', todos.routes(), todos.allowedMethods())
 router.use('/', defaults.routes(), defaults.allowedMethods())
 
 app.use(router.routes())
