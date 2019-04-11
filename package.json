@@ -1,21 +1,30 @@
 {
-  "name": "node-koa-api",
-  "version": "0.0.0",
+  "name": "koainit",
+  "version": "1.0.0",
+  "description": "Default koa setup",
   "private": true,
   "scripts": {
     "start": "node ./src/server/index.js",
     "test": "./node_modules/mocha/bin/_mocha"
   },
   "keywords": [],
-  "author": "Michael Herman",
+  "author": "Charlie",
   "license": "ISC",
   "devDependencies": {
     "chai": "4.1.1",
     "chai-http": "^4.2.1",
-    "knex": "^0.16.3",
-    "koa": "^2.7.0",
-    "mocha": "^6.1.2",
-    "pg": "^7.9.0"
+    "mocha": "^6.1.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "knex": "^0.16.3",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-passport": "^4.0.1",
+    "koa-redis": "^3.1.1",
+    "koa-router": "^7.2.1",
+    "koa-session": "^5.5.1",
+    "passport-local": "^1.0.0",
+    "pg": "^7.1.2"
+  }
 }
