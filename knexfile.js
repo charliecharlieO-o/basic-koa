@@ -15,7 +15,7 @@ module.exports = {
   },
   development: {
     client: 'pg',
-    conection: 'postgres://dev:developer@localhost:5432/koa_api_test',
+    connection: 'postgres://dev:developer@localhost:5432/koa_api',
     migrations: {
       directory: path.join(BASE_PATH, 'migrations')
     },
